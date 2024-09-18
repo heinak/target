@@ -1,4 +1,4 @@
-#include <cstdio>
+ï»¿#include <cstdio>
 #include<sys/types.h>
 #include<sys/socket.h>
 #include<arpa/inet.h>
@@ -10,14 +10,15 @@
 #include<sys/types.h>
 #include<sys/stat.h>
 #include<unistd.h>
+#include"erron.h"
 using namespace std;
 
 
 int main() {
-
+	
 	int socketfd = socket(AF_INET, SOCK_STREAM, IPPROTO_TCP);
 	if (socketfd < 0) {
-		cout << "creat socket error " << strerror(errno) << endl;
+		errif(socketfd == -1, "create socket erron");
 	}
 	else {
 		cout << "create socket succese" << endl;
@@ -30,8 +31,7 @@ int main() {
 	int Bind = bind(socketfd, (struct sockaddr*)&sockAddr, sizeof(sockAddr));
 
 	if (Bind < 0) {
-		cout << "creat bind error " << strerror(errno) << endl;
-
+		errif(Bind == -1, "create bind erron");
 	}
 	else {
 		cout << "creat bind susses" << endl;
@@ -42,22 +42,19 @@ int main() {
 
 
 	if (Listen < 0) {
-
-		cout << "creat listen error " << strerror(errno) << endl;
-		return 1;
+		errif(Listen == -1, "create listen erron");
 	}
 	else {
 		cout << "socket listening......" << endl;
-	}
-	while (true) {
+	}while (true) {
 		int connfd = accept(socketfd, nullptr, nullptr);
 		if (connfd < 0) {
-			cout << "creat accept error " << strerror(errno) << endl;
-			return 1;
+			errif(connfd == -1, "create accept erron");
 		}
+		
 		char buf[1024] = { 0 };
 		size_t len = recv(connfd, buf, sizeof(buf), 0);
-		cout << "Ì×½Ó×ÖÐÅÏ¢:" << connfd << "½ÓÊÕµÄÐÅÏ¢:" << buf << endl;
+		cout << "å¥—æŽ¥å­—ä¿¡æ¯:" << connfd << "æŽ¥æ”¶çš„ä¿¡æ¯:" << buf << endl;
 		send(connfd, buf, len, 0);
 	}
 

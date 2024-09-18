@@ -156,11 +156,15 @@
     <SourcePath>$(SourcePath)</SourcePath>
   </PropertyGroup>
   <ItemGroup>
+    <ClCompile Include="erron.cpp" />
     <ClCompile Include="server.cpp" />
     <ClCompile Include="client.cpp" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="Makefile" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="erron.h" />
   </ItemGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>

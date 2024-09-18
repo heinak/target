@@ -1,11 +1,13 @@
-#include<sys/types.h>
+ï»¿#include<sys/types.h>
 #include<sys/socket.h>
 #include<cstring>
 #include<netinet/in.h>
 #include<unistd.h>
 #include<iostream>
 #include<arpa/inet.h>
+#include"erron.h"
 using namespace std;
+
 
 int main() {
 
@@ -13,7 +15,7 @@ int main() {
 	int clintfd = socket(PF_INET, SOCK_STREAM, IPPROTO_TCP);
 
 	if (clintfd < 0) {
-		cout << "create socket error" << strerror(errno) << endl;
+		errif(clintfd == -1, "create socket erron");
 	}
 	else {
 		cout << "creat socket succese" << endl;
@@ -28,18 +30,18 @@ int main() {
 	//int connfd = connect(clintfd, (struct sockaddr*)&sockAddr, sizeof(sockAddr));
 	int connfd = connect(clintfd, (sockaddr*)&sockAddr, sizeof(sockaddr));
 	if (connfd < 0) {
-		cout << "create connect error " << strerror(errno) << endl;
+		errif(connfd == -1, "create connsct erron");
 	}
 	else {
 		cout << "creat connect succese" << endl;
-	}
-
+	}	
+	
+    const char* str = "hello world";
+	send(connfd, str, strlen(str), NULL);
 	char meg[1024] = { 0 };
 	recv(connfd, meg, 1024, 0);
-	cout << "½Óµ½µÄÐÅÏ¢Îª£º" << meg << endl;
+	cout << "æŽ¥åˆ°çš„ä¿¡æ¯ä¸ºï¼š" << meg << endl;
 
-	const char* str = "hello world";
-	send(connfd, str, strlen(str), NULL);
 	close(clintfd);
 	return 0;
 
