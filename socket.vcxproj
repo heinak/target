@@ -156,15 +156,21 @@
     <SourcePath>$(SourcePath)</SourcePath>
   </PropertyGroup>
   <ItemGroup>
+    <ClCompile Include="epoll.cpp" />
     <ClCompile Include="erron.cpp" />
     <ClCompile Include="server.cpp" />
     <ClCompile Include="client.cpp" />
+    <ClCompile Include="socket.cpp" />
+    <ClCompile Include="wclient.cpp" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="Makefile" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="epoll.h" />
     <ClInclude Include="erron.h" />
+    <ClInclude Include="socket.h" />
+    <ClInclude Include="wclient.h" />
   </ItemGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
