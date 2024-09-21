@@ -156,6 +156,7 @@
     <SourcePath>$(SourcePath)</SourcePath>
   </PropertyGroup>
   <ItemGroup>
+    <ClCompile Include="channel.cpp" />
     <ClCompile Include="epoll.cpp" />
     <ClCompile Include="erron.cpp" />
     <ClCompile Include="server.cpp" />
@@ -167,6 +168,7 @@
     <Text Include="Makefile" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="channel.h" />
     <ClInclude Include="epoll.h" />
     <ClInclude Include="erron.h" />
     <ClInclude Include="socket.h" />
