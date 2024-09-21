@@ -27,7 +27,7 @@ void handevents(int);
 
 int main() {
 	Socket* serv_sock = new Socket();
-	Wclient* serv_addr = new Wclient("120.0.0.1",8888);
+	Wclient* serv_addr = new Wclient("127.0.0.1",8888);
 	serv_sock->bind(serv_addr);
 	serv_sock->listen();
 	Epoll* ep = new Epoll();
@@ -70,8 +70,8 @@ void handevents(int sockfd) {
 			continue;
 		}
 		else if (bytes_read == -1 && ((errno == EAGAIN) || (errno == EWOULDBLOCK))) {
-			std::cout << "finish reading once,errno is:" << errno << std::endl;
-			break;
+			std::cout << "finish reading once,errno is:" << strerror(errno) << std::endl;
+			continue;
 		}
 		else if (bytes_read == 0) {
 			std::cout << "EOF,client fd: " << sockfd << "disconnected" << std::endl;
