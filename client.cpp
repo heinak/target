@@ -9,6 +9,7 @@
 using namespace std;
 
 #define BUFFER_SIZE 1024
+
 int main() {
 
 
@@ -44,13 +45,14 @@ int main() {
 			std::cout << "socket already disconnected" << std::endl;
 			break;
 		}
-		memset(buf, 0, sizeof(buf));
+		memset(&buf, 0, sizeof(buf));
 		ssize_t read_bybes = read(clintfd, buf, sizeof(buf));
 		if (read_bybes > 0) {
 			std::cout << "message from server: " << buf << std::endl;
 		}
 		else if (read_bybes == 0) {
 			std::cout << "server disconnectde"<< std::endl;
+			break;
 		}
 		else if (read_bybes == -1) {
 			errif(true, "socket read erron");

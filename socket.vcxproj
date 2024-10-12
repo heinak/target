@@ -159,8 +159,10 @@
     <ClCompile Include="channel.cpp" />
     <ClCompile Include="epoll.cpp" />
     <ClCompile Include="erron.cpp" />
+    <ClCompile Include="Eventloop.cpp" />
     <ClCompile Include="server.cpp" />
     <ClCompile Include="client.cpp" />
+    <ClCompile Include="Serverr.cpp" />
     <ClCompile Include="socket.cpp" />
     <ClCompile Include="wclient.cpp" />
   </ItemGroup>
@@ -171,6 +173,8 @@
     <ClInclude Include="channel.h" />
     <ClInclude Include="epoll.h" />
     <ClInclude Include="erron.h" />
+    <ClInclude Include="Eventloop.h" />
+    <ClInclude Include="Serverr.h" />
     <ClInclude Include="socket.h" />
     <ClInclude Include="wclient.h" />
   </ItemGroup>

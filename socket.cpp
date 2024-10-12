@@ -1,6 +1,7 @@
 #include"socket.h"
 #include"erron.h"
 #include"wclient.h"
+#include<unistd.h>
 #include<fcntl.h>
 #include<sys/socket.h>
 #include<string.h>

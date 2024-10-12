@@ -1,5 +1,6 @@
 #include"epoll.h"
 #include"erron.h"
+#include"channel.h"
 #include<unistd.h>
 #include<string.h>
 

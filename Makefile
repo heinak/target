@@ -1,2 +1,3 @@
 ﻿server:
-	g++	erron.cpp	socket.cpp	wclient.cpp	epoll.cpp	channel.cpp	server.cpp	-o	server	&&	g++	erron.cpp	client.cpp	-o	client
+	g++ erron.cpp	server.cpp	epoll.cpp	wclient.cpp	socket.cpp	channel.cpp	Eventloop.cpp	Serverr.cpp	-o	server	&&	\
+	g++	erron.cpp	client.cpp	-o	client
