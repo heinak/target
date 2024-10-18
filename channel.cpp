@@ -1,5 +1,5 @@
-#include"epoll.h"
 #include"channel.h"
+#include"epoll.h"
 #include"Eventloop.h"
 
 Channel::Channel(EventLoop*_loop, int _fd)
@@ -39,10 +39,6 @@ bool Channel::getInEpoll() {
 void Channel::setInEpoll() {
 	inEpoll = true;
 }
-
-// void Channel::setEvent(uint32_t _ev){
-//     events = _ev;
-// }
 
 void Channel::setRevent(uint32_t _ev) {
 	revents = _ev;

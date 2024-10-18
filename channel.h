@@ -2,7 +2,7 @@
 #include<functional>
 #include<sys/epoll.h>
 
-class Epoll;
+class EventLoop;
 
 class Channel {
 public:

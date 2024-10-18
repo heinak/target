@@ -11,10 +11,7 @@ using namespace std;
 #define BUFFER_SIZE 1024
 
 int main() {
-
-
 	int clintfd = socket(PF_INET, SOCK_STREAM, IPPROTO_TCP);
-
 	if (clintfd < 0) {
 		errif(clintfd == -1, "create socket erron");
 	}

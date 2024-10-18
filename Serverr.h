@@ -1,12 +1,13 @@
-
 #pragma once
 
 class EventLoop;
 class Socket;
+class Accept;
 class Server
 {
 private:
     EventLoop* loop;
+    Accept* accept;
 public:
     Server(EventLoop*);
     ~Server();
