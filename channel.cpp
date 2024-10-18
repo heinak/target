@@ -43,6 +43,7 @@ void Channel::setInEpoll() {
 void Channel::setRevent(uint32_t _ev) {
 	revents = _ev;
 }
+
 void Channel::setCallback(std::function<void()> _cb) {
 	callback = _cb;
 }

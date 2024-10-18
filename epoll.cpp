@@ -29,7 +29,6 @@ void Epoll::addFd(int fd,uint32_t op) {
 }
 
 
-
 std::vector<Channel*> Epoll::poll(int timeout) {
 	std::vector<Channel*> active;
 	int acfd = epoll_wait(epollfd, events, MAX_EVENTS, timeout);

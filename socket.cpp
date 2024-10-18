@@ -18,7 +18,6 @@ Socket::~Socket() {
 		close(fd);
 		fd = -1;
 	}
-	
 }
 void Socket::bind(Wclient *addr) {
 	int bfd = ::bind(fd, (sockaddr*)&addr->addr, addr->len);

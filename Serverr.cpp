@@ -47,7 +47,6 @@ void Server::handleReadEvent(int sockfd) {
         		else {
         			std::cout << "designing" << std::endl;
         		}
-        	
     }
 }
 

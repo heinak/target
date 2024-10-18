@@ -18,6 +18,7 @@ public:
 	void setInEpoll();
 
 	void setRevent(uint32_t);
+
 	void setCallback(std::function<void()>);
 private:
 	EventLoop* loop;

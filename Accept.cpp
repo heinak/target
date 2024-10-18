@@ -16,7 +16,6 @@ Accept::Accept(EventLoop* _loop) : loop(_loop) {
 
 	servChannel->setCallback(cb);
 	servChannel->enablereading();
-
 }
 
 Accept::~Accept() {

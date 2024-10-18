@@ -11,7 +11,6 @@ private:
 public:
     Server(EventLoop*);
     ~Server();
-
     void handleReadEvent(int);
     void newConnection(Socket* serv_sock);
 };

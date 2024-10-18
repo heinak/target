@@ -1,0 +1,53 @@
+[33mcommit 1fbb8112c0788cbc5fd25083a57e9b041837b8d5[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmaster[m[33m)[m
+Author: heinak <2050948618@qq.com>
+Date:   Fri Oct 18 20:35:27 2024 +0800
+
+    封装新连接，解决bug：输出不符合预期
+
+[33mcommit 3910cda034a862e946ec47ec5519a397d68b55db[m
+Author: meihai001 <a2050948618@gmail.com>
+Date:   Sat Oct 12 12:11:01 2024 +0800
+
+    初步完成Reactor模式
+
+[33mcommit 80ea42b98ec138a1cb04b9512d9d892ff1b1e265[m
+Author: meihai001 <a2050948618@gmail.com>
+Date:   Sat Sep 21 23:42:08 2024 +0800
+
+    used channel to control epoll
+
+[33mcommit 627a41fbf1235cc67cf1941f00ca5d6244128189[m
+Author: meihai001 <a2050948618@gmail.com>
+Date:   Sat Sep 21 09:57:02 2024 +0800
+
+    修改bug：bind错误
+
+[33mcommit 3a9c3e6e0d8de0eeb187b5d78fbc65c063fc06fb[m
+Author: meihai001 <a2050948618@gmail.com>
+Date:   Sat Sep 21 01:03:44 2024 +0800
+
+    将epoll，socket，和创建client封装成类
+
+[33mcommit 35232163599ba65b8a3d2d63a1485711e5b84674[m
+Author: meihai001 <a2050948618@gmail.com>
+Date:   Thu Sep 19 21:52:44 2024 +0800
+
+    对server并发封装epoll
+
+[33mcommit 5820c80b8af040adc501cb74f478f7c886ac4bd8[m
+Author: meihai001 <a2050948618@gmail.com>
+Date:   Wed Sep 18 23:40:43 2024 +0800
+
+    将失败的连接封装，减少代码重复性
+
+[33mcommit bb91ea4f980c5233b8decefc7613f1f8ef006819[m
+Author: meihai001 <a2050948618@gmail.com>
+Date:   Wed Sep 18 15:41:50 2024 +0800
+
+    添加项目文件。
+
+[33mcommit eabd0251459fc4c5f7dc4c62571cfa2c2d285bfe[m
+Author: meihai001 <a2050948618@gmail.com>
+Date:   Wed Sep 18 15:41:48 2024 +0800
+
+    添加 .gitattributes 和 .gitignore。

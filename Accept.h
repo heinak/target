@@ -10,7 +10,9 @@ public:
     Accept(EventLoop* _loop);
     ~Accept();
     void acceptConnection();
+
     std::function<void(Socket*)> newConnectionCallback;
+
     void setNewConnectionCallback(std::function<void(Socket*)>);
 private:
     EventLoop* loop;

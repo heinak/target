@@ -18,7 +18,6 @@ int main() {
 	else {
 		cout << "creat socket succese" << endl;
 	}
-
 	struct sockaddr_in sockAddr;
 	memset(&sockAddr, 0, sizeof(sockAddr));
 	sockAddr.sin_family = PF_INET;
