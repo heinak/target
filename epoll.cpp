@@ -20,27 +20,38 @@ Epoll::~Epoll(){
 	}
 	delete[] events;
 }
-void Epoll::addFd(int fd,uint32_t op) {
-	struct epoll_event ev;
-	bzero(&ev, sizeof(ev));
-	ev.data.fd = fd;
-	ev.events = op;
-	errif(epoll_ctl(epollfd, EPOLL_CTL_ADD, fd, &ev) == -1, "create epoll_ctl erron");
-}
-
+//void Epoll::addFd(int fd,uint32_t op) {
+//	struct epoll_event ev;
+//	bzero(&ev, sizeof(ev));
+//	ev.data.fd = fd;
+//	ev.events = op;
+//	errif(epoll_ctl(epollfd, EPOLL_CTL_ADD, fd, &ev) == -1, "create epoll_ctl erron");
+//}
+//
+//
+//std::vector<Channel*> Epoll::poll(int timeout) {
+//	std::vector<Channel*> active;
+//	int acfd = epoll_wait(epollfd, events, MAX_EVENTS, timeout);
+//	errif(acfd == -1, "create epoll_wait erron");
+//	for (int i = 0; i < acfd; ++i) {
+//		Channel* ch = (Channel*)events[i].data.ptr;
+//		ch->setRevent(events[i].events);
+//		active.push_back(ch);
+//	}
+//	return active;
+//}
 
 std::vector<Channel*> Epoll::poll(int timeout) {
-	std::vector<Channel*> active;
-	int acfd = epoll_wait(epollfd, events, MAX_EVENTS, timeout);
-	errif(acfd == -1, "create epoll_wait erron");
-	for (int i = 0; i < acfd; ++i) {
+	std::vector<Channel*> activeChannels;
+	int nfds = epoll_wait(epollfd, events, MAX_EVENTS, timeout);
+	errif(nfds == -1, "epoll wait error");
+	for (int i = 0; i < nfds; ++i) {
 		Channel* ch = (Channel*)events[i].data.ptr;
 		ch->setRevent(events[i].events);
-		active.push_back(ch);
+		activeChannels.push_back(ch);
 	}
-	return active;
+	return activeChannels;
 }
-
 
 void Epoll::updateChannel(Channel* channel) {
 	int fd = channel->getfd();

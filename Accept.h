@@ -2,7 +2,6 @@
 #include<functional>
 class EventLoop;
 class Socket;
-class Wclient;
 class Channel;
 class Accept
 {
@@ -11,13 +10,13 @@ public:
     ~Accept();
     void acceptConnection();
 
-    std::function<void(Socket*)> newConnectionCallback;
+    //std::function<void(Socket*)> newConnectionCallback;
 
     void setNewConnectionCallback(std::function<void(Socket*)>);
 private:
     EventLoop* loop;
     Socket* sock;
-    Wclient* addr;
+    std::function<void(Socket*)> newConnectionCallback;
     Channel* servChannel;
 };
 

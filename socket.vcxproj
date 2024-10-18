@@ -158,6 +158,7 @@
   <ItemGroup>
     <ClCompile Include="Accept.cpp" />
     <ClCompile Include="channel.cpp" />
+    <ClCompile Include="Connect.cpp" />
     <ClCompile Include="epoll.cpp" />
     <ClCompile Include="erron.cpp" />
     <ClCompile Include="Eventloop.cpp" />
@@ -173,6 +174,7 @@
   <ItemGroup>
     <ClInclude Include="Accept.h" />
     <ClInclude Include="channel.h" />
+    <ClInclude Include="Connect.h" />
     <ClInclude Include="epoll.h" />
     <ClInclude Include="erron.h" />
     <ClInclude Include="Eventloop.h" />
