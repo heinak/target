@@ -1,24 +1,29 @@
 #include "socket.h"
 #include "channel.h"
 #include "Connect.h"
+#include "Buffer.h"
 #include <functional>
 #include <unistd.h>
 #include <iostream>
-
+#include <string>
 
 #define READ_BUFFER 1024
 
-Connect::Connect(EventLoop* _loop,Socket*_sock) : loop(_loop), sock(_sock),channel(nullptr) {
+Connect::Connect(EventLoop* _loop,Socket*_sock) : loop(_loop), sock(_sock),channel(nullptr),inBuffer(new std::string()),readBuffer(nullptr) {
     channel = new Channel(loop, sock->getfd());
     std::function<void()> cb = std::bind(&Connect::handleReadEvent, this, sock->getfd());
     channel->setCallback(cb);
     channel->enablereading();
+
+    readBuffer = new Buffer();
 }
 
 Connect::~Connect()
 {
     delete channel;
     delete sock;
+    delete inBuffer;
+    delete readBuffer;
 }
 
 void Connect::handleReadEvent(int sockfd) {

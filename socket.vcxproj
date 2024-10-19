@@ -157,6 +157,7 @@
   </PropertyGroup>
   <ItemGroup>
     <ClCompile Include="Accept.cpp" />
+    <ClCompile Include="Buffer.cpp" />
     <ClCompile Include="channel.cpp" />
     <ClCompile Include="Connect.cpp" />
     <ClCompile Include="epoll.cpp" />
@@ -173,6 +174,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Accept.h" />
+    <ClInclude Include="Buffer.h" />
     <ClInclude Include="channel.h" />
     <ClInclude Include="Connect.h" />
     <ClInclude Include="epoll.h" />
