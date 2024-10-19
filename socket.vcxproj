@@ -167,6 +167,8 @@
     <ClCompile Include="client.cpp" />
     <ClCompile Include="Serverr.cpp" />
     <ClCompile Include="socket.cpp" />
+    <ClCompile Include="Theadpool.cpp" />
+    <ClCompile Include="TPtest.cpp" />
     <ClCompile Include="wclient.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -182,6 +184,7 @@
     <ClInclude Include="Eventloop.h" />
     <ClInclude Include="Serverr.h" />
     <ClInclude Include="socket.h" />
+    <ClInclude Include="Theadpool.h" />
     <ClInclude Include="wclient.h" />
   </ItemGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">

@@ -2,10 +2,15 @@
 #include<arpa/inet.h>
 
 class Wclient {
-public:	
-	Wclient() ;
-	~Wclient() ;
+public:
+	Wclient();
+	~Wclient();
 	Wclient(const char* ip, uint16_t post);
-	socklen_t len;
+
+	void setInetAddr(sockaddr_in _addr, socklen_t _addr_len);
+	sockaddr_in getAddr();
+	socklen_t getAddr_len();
+private:
 	sockaddr_in addr;
+	socklen_t addr_len;
 };

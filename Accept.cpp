@@ -28,7 +28,7 @@ Accept::~Accept() {
 void Accept::acceptConnection() {
 	Wclient* clnt_addr = new Wclient();
 	Socket* clnt_sock = new Socket(sock->accept(clnt_addr));
-	std::cout << "new client fd" << clnt_sock->getfd() << "IP:" << inet_ntoa(clnt_addr->addr.sin_addr) << "Port:" << ntohs(clnt_addr->addr.sin_port) << std::endl;
+	std::cout << "new client fd" << clnt_sock->getfd() << "IP:" << inet_ntoa(clnt_addr->getAddr().sin_addr) << "Port:" << ntohs(clnt_addr->getAddr().sin_port) << std::endl;
 	clnt_sock->setnonblocking();
 	newConnectionCallback(clnt_sock);
 	delete clnt_addr;

@@ -10,9 +10,12 @@ public:
 	Socket();
 	Socket(int);
 	~Socket() ;
+
 	void bind(Wclient *addr);
 	void listen();
 	int accept(Wclient* addr);
+	void connect(Wclient*);
+
 	void setnonblocking();
 	int getfd();
 private:

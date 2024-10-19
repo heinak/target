@@ -22,8 +22,8 @@ Connect::~Connect()
 {
     delete channel;
     delete sock;
-    delete inBuffer;
-    delete readBuffer;
+    //delete inBuffer;
+    //delete readBuffer;
 }
 
 void Connect::handleReadEvent(int sockfd) {
