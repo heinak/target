@@ -20,6 +20,15 @@ Epoll::~Epoll(){
 	}
 	delete[] events;
 }
+
+void Epoll::deleteChannel(Channel* channel)
+{
+	int fd = channel->getfd();
+	int eppfd = epoll_ctl(epollfd, EPOLL_CTL_DEL, fd, nullptr);
+	errif(eppfd == -1, "delete epoll erron");
+	channel->setInEpoll(false);
+}
+
 //void Epoll::addFd(int fd,uint32_t op) {
 //	struct epoll_event ev;
 //	bzero(&ev, sizeof(ev));
@@ -47,7 +56,7 @@ std::vector<Channel*> Epoll::poll(int timeout) {
 	errif(nfds == -1, "epoll wait error");
 	for (int i = 0; i < nfds; ++i) {
 		Channel* ch = (Channel*)events[i].data.ptr;
-		ch->setRevent(events[i].events);
+		ch->setReady(events[i].events);
 		activeChannels.push_back(ch);
 	}
 	return activeChannels;

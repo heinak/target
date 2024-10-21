@@ -11,9 +11,13 @@
 
 Connect::Connect(EventLoop* _loop,Socket*_sock) : loop(_loop), sock(_sock),channel(nullptr),inBuffer(new std::string()),readBuffer(nullptr) {
     channel = new Channel(loop, sock->getfd());
+
+    channel->enablereading();
+    channel->useET();
+
     std::function<void()> cb = std::bind(&Connect::handleReadEvent, this, sock->getfd());
     channel->setCallback(cb);
-    channel->enablereading();
+    channel->setUseThreadPool(true);
 
     readBuffer = new Buffer();
 }
@@ -23,7 +27,7 @@ Connect::~Connect()
     delete channel;
     delete sock;
     //delete inBuffer;
-    //delete readBuffer;
+    delete readBuffer;
 }
 
 void Connect::handleReadEvent(int sockfd) {
@@ -57,4 +61,19 @@ void Connect::handleReadEvent(int sockfd) {
 
 void Connect::setDeleteConnectionCallback(std::function<void(Socket*)> _cb) {
     deleteConnectionCallback = _cb;
+}
+
+void Connect::send(int sockfd) {
+    char buf[readBuffer->size()];
+    strcpy(buf, readBuffer->c_str());
+    int  data_size = readBuffer->size();
+    int data_left = data_size;
+    while (data_left > 0)
+    {
+        ssize_t bytes_write = write(sockfd, buf + data_size - data_left, data_left);
+        if (bytes_write == -1 && errno == EAGAIN) {
+            break;
+        }
+        data_left -= bytes_write;
+    }
 }

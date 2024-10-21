@@ -21,10 +21,10 @@ Socket::~Socket() {
 }
 void Socket::bind(Wclient *addr) {
 	sockaddr_in _addr = addr->getAddr();
-	socklen_t addr_len = addr->getAddr_len();
-	int bfd = ::bind(fd, (sockaddr*)&_addr, addr_len);
+	//socklen_t addr_len = addr->getAddr_len();
+	int bfd = ::bind(fd, (sockaddr*)&_addr, sizeof(addr));
 	errif(bfd == -1, "create bind erron");
-	addr->setInetAddr(_addr, addr_len);
+	//addr->setInetAddr(_addr, addr_len);
 }
 
 void Socket::listen() {
@@ -37,19 +37,19 @@ void Socket::setnonblocking() {
 
 int Socket::accept(Wclient* addr) {
 	sockaddr_in _addr;
-	socklen_t addr_len = sizeof(_addr);
+    socklen_t addr_len = sizeof(_addr);
 	memset(&_addr, 0, sizeof(_addr));
 	int acfd = ::accept(fd, (sockaddr*)&_addr, &addr_len);
 	errif(acfd == -1, "create accept erron");
-	addr->setInetAddr(_addr,addr_len);
+	addr->setInetAddr(_addr);
 	return acfd;
 }
 
 void Socket::connect(Wclient* addr)
 {
 	sockaddr_in _addr = addr->getAddr();
-	socklen_t addr_len = addr->getAddr_len();
-	int connfd = ::connect(fd, (sockaddr*)&_addr, addr_len);
+	//socklen_t addr_len = addr->getAddr_len();
+	int connfd = ::connect(fd, (sockaddr*)&_addr, sizeof(addr));
 	errif(connfd == -1, "create accept erron");
 }
 

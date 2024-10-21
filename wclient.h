@@ -7,7 +7,7 @@ public:
 	~Wclient();
 	Wclient(const char* ip, uint16_t post);
 
-	void setInetAddr(sockaddr_in _addr, socklen_t _addr_len);
+	void setInetAddr(sockaddr_in _addr);
 	sockaddr_in getAddr();
 	socklen_t getAddr_len();
 private:

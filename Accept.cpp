@@ -9,7 +9,11 @@ Accept::Accept(EventLoop* _loop) : loop(_loop) {
 	Wclient *addr = new Wclient("127.0.0.1", 8888);
 	sock->bind(addr);
 	sock->listen();
-	sock->setnonblocking();
+	
+	//sock->setnonblocking();
+
+	sock->listen();
+
 
 	 servChannel = new Channel(loop, sock->getfd());
 

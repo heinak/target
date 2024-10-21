@@ -19,9 +19,8 @@ Wclient::Wclient(const char* ip, uint16_t post) :
 
 Wclient::~Wclient() {}
 
-void Wclient::setInetAddr(sockaddr_in _addr, socklen_t _addr_len) {
+void Wclient::setInetAddr(sockaddr_in _addr) {
 	addr = _addr;
-	addr_len = _addr_len;
 }
 
 sockaddr_in Wclient::getAddr() {

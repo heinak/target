@@ -1,6 +1,7 @@
 #pragma once
 #include <functional>
 #include <string>
+
 class EventLoop;
 class Socket;
 class Channel;
@@ -13,6 +14,8 @@ public:
 
     void handleReadEvent(int sockfd);
     void setDeleteConnectionCallback(std::function<void(Socket*)>);
+
+    void send(int sockfd);
 private:
     EventLoop* loop;
     Socket* sock;

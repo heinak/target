@@ -53,16 +53,21 @@ Server::~Server()
 
 
 
+
 void Server::newConnection(Socket* serv_sock) {
-    Connect* conn = new Connect(loop, serv_sock);
-    std::function<void(Socket*)> cb = std::bind(&Server::deleteConnection, this, std::placeholders::_1);
-    conn->setDeleteConnectionCallback(cb);
-    connect[serv_sock->getfd()] = conn;
+    if (serv_sock->getfd() != -1) {
+        Connect* conn = new Connect(loop, serv_sock);
+        std::function<void(Socket*)> cb = std::bind(&Server::deleteConnection, this, std::placeholders::_1);
+        conn->setDeleteConnectionCallback(cb);
+        connect[serv_sock->getfd()] = conn;
+    }
 }
 
 void Server::deleteConnection(Socket* sock)
 {
-    Connect* conn = connect[sock->getfd()];
-    connect.erase(sock->getfd());
-    delete conn;
+    if (sock->getfd() != -1) {
+        Connect* conn = connect[sock->getfd()];
+        connect.erase(sock->getfd());
+        delete conn;
+    }
 }

@@ -7,7 +7,7 @@ class Epoll {
 public:
 	Epoll() ;
 	~Epoll() ;
-	void addFd(int fd,uint32_t op);
+	void deleteChannel(Channel*);
 	void updateChannel(Channel*);
 
 	std::vector<Channel*> poll(int timeout = -1);

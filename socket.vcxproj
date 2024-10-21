@@ -167,6 +167,7 @@
     <ClCompile Include="client.cpp" />
     <ClCompile Include="Serverr.cpp" />
     <ClCompile Include="socket.cpp" />
+    <ClCompile Include="test.cpp" />
     <ClCompile Include="Theadpool.cpp" />
     <ClCompile Include="TPtest.cpp" />
     <ClCompile Include="wclient.cpp" />

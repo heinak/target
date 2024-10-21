@@ -12,7 +12,7 @@ EventLoop::EventLoop() : ep(nullptr), quit(false),threadpool(nullptr) {
 EventLoop::~EventLoop()
 {
     delete ep;
-   // delete threadpool;
+    delete threadpool;
 }
 
 
