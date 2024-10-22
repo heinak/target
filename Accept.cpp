@@ -1,6 +1,5 @@
 #include "Accept.h"
 #include "socket.h"
-#include "wclient.h"
 #include "channel.h"
 #include<iostream>
 

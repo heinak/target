@@ -170,7 +170,6 @@
     <ClCompile Include="test.cpp" />
     <ClCompile Include="Theadpool.cpp" />
     <ClCompile Include="TPtest.cpp" />
-    <ClCompile Include="wclient.cpp" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="Makefile" />
@@ -186,7 +185,6 @@
     <ClInclude Include="Serverr.h" />
     <ClInclude Include="socket.h" />
     <ClInclude Include="Theadpool.h" />
-    <ClInclude Include="wclient.h" />
   </ItemGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>

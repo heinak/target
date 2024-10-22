@@ -4,7 +4,6 @@
 #include <functional>
 #include "erron.h"
 #include "Buffer.h"
-#include "wclient.h"
 #include "socket.h"
 #include "Theadpool.h"
 

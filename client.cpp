@@ -3,7 +3,6 @@
 #include <string>
 #include "erron.h"
 #include "Buffer.h"
-#include "wclient.h"
 #include "socket.h"
 
 using namespace std;

@@ -1,6 +1,5 @@
 #include "Serverr.h"
 #include "socket.h"
-#include "wclient.h"
 #include "channel.h"
 #include "Accept.h"
 #include "Connect.h"
